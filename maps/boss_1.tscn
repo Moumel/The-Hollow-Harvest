@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cpt33o853374x"]
+
+[ext_resource type="Texture2D" uid="uid://brdiy364hgylm" path="res://map_assets/pride_map.jpg" id="1_uai7y"]
+[ext_resource type="PackedScene" uid="uid://ywfknwoo3r8e" path="res://player.tscn" id="2_vk4im"]
+[ext_resource type="Script" uid="uid://cmd4f8b2lqjyc" path="res://maps/area_2d.gd" id="3_vk4im"]
+[ext_resource type="Texture2D" uid="uid://j6b7dl7nfcxa" path="res://maps/statue_overlay.png" id="4_uai7y"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u7hgj"]
+radius = 15.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uai7y"]
+size = Vector2(204, 38)
+
+[node name="boss_1" type="Node2D" unique_id=1304106795]
+y_sort_enabled = true
+
+[node name="Pridemap" type="Sprite2D" parent="." unique_id=1948709669]
+z_index = -10
+y_sort_enabled = true
+position = Vector2(-15.500017, 3.4999695)
+scale = Vector2(0.9916667, 1.0287036)
+texture = ExtResource("1_uai7y")
+
+[node name="player" parent="Pridemap" unique_id=331193625 instance=ExtResource("2_vk4im")]
+z_index = 5
+y_sort_enabled = true
+
+[node name="CollisionShape2D" parent="Pridemap/player" index="1" unique_id=31584279]
+position = Vector2(-19, 181)
+shape = SubResource("CapsuleShape2D_u7hgj")
+
+[node name="Sprite2D" parent="Pridemap/player" index="2" unique_id=937605685]
+position = Vector2(-20.000004, 164)
+scale = Vector2(1.8125, 2.03125)
+
+[node name="AnimatedSprite2D" parent="Pridemap/player" index="3" unique_id=1529002959]
+position = Vector2(-19, 179)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1988854363]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=2067048107]
+polygon = PackedVector2Array(44, -30, 59, 10, 22, 62, -117, 123, -519, 126, -516, -194, -182, -190, -62, -93)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=532859328]
+polygon = PackedVector2Array(-107, -154, -145, -226, 120, -229, 111, -153, 76, -111, 220, -42, 491, -38, 490, -501, -482, -500, -490, -199, -155, -185)
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1871365391]
+polygon = PackedVector2Array(263, -18, 278, 70, 147, 187, 48, 239, -23, 290, -6, 367, 68, 457, 112, 481, 483, 480, 479, 55, 481, -23)
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1450576697]
+polygon = PackedVector2Array(-129, 130, -277, 238, -396, 356, -400, 408, -395, 473, -504, 466, -501, 139)
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=105705651]
+polygon = PackedVector2Array(35, 444, -389, 440, -387, 472, 44, 473)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=352906817]
+script = ExtResource("3_vk4im")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=119237090]
+position = Vector2(-8, -186)
+shape = SubResource("RectangleShape2D_uai7y")
+
+[node name="StatueOverlay" type="Sprite2D" parent="." unique_id=417764213]
+z_index = 10
+y_sort_enabled = true
+position = Vector2(-12, -11)
+texture = ExtResource("4_uai7y")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+
+[editable path="Pridemap/player"]

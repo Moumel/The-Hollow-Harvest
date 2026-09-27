@@ -1,0 +1,230 @@
+[gd_scene format=3 uid="uid://de76c20d67ao1"]
+
+[ext_resource type="Script" uid="uid://bbshg06p11g7f" path="res://hub_alt.gd" id="1_6b52r"]
+[ext_resource type="Texture2D" uid="uid://s6wivqjqww6m" path="res://map_assets/hub_alt.jpg" id="2_7xa0l"]
+[ext_resource type="PackedScene" uid="uid://ywfknwoo3r8e" path="res://player.tscn" id="3_7xa0l"]
+[ext_resource type="Texture2D" uid="uid://brpgrtu3uv52u" path="res://asesst/mc1.png" id="4_7xa0l"]
+[ext_resource type="Script" uid="uid://de8i0s3er8cdg" path="res://npc.gd" id="4_721wg"]
+[ext_resource type="Texture2D" uid="uid://dqomyuhfmpwsc" path="res://asesst/deathe.png" id="5_6b52r"]
+[ext_resource type="Texture2D" uid="uid://ctdmq7lwh86l8" path="res://asesst/mc1_main_sprite.png" id="5_721wg"]
+[ext_resource type="Texture2D" uid="uid://4yknidq0b5x0" path="res://asesst/npcmss.png" id="5_w4k11"]
+[ext_resource type="PackedScene" uid="uid://dt2ue47d6tp6d" path="res://dialogue_ui.tscn" id="6_6b52r"]
+[ext_resource type="Script" uid="uid://i3bn0ecukwh0" path="res://north_gate.gd" id="7_h5e6w"]
+[ext_resource type="Texture2D" uid="uid://bvpb8pmbim2bo" path="res://asesst/secmc-export.png" id="12_6b52r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4k11"]
+atlas = ExtResource("5_721wg")
+region = Rect2(0, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b52r"]
+atlas = ExtResource("5_721wg")
+region = Rect2(0, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5e6w"]
+atlas = ExtResource("5_721wg")
+region = Rect2(0, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n21c8"]
+atlas = ExtResource("5_721wg")
+region = Rect2(62, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_081rk"]
+atlas = ExtResource("5_721wg")
+region = Rect2(62, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3217"]
+atlas = ExtResource("5_721wg")
+region = Rect2(62, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mih4s"]
+atlas = ExtResource("5_721wg")
+region = Rect2(93, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cf414"]
+atlas = ExtResource("5_721wg")
+region = Rect2(93, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mqbv5"]
+atlas = ExtResource("5_721wg")
+region = Rect2(93, 64, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8a2f3"]
+atlas = ExtResource("5_721wg")
+region = Rect2(31, 0, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om1js"]
+atlas = ExtResource("5_721wg")
+region = Rect2(31, 32, 31, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cacgh"]
+atlas = ExtResource("5_721wg")
+region = Rect2(31, 64, 31, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uo5o4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_6b52r")
+}],
+"loop": true,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w4k11")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b52r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5e6w")
+}],
+"loop": true,
+"name": &"walk_down",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n21c8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_081rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3217")
+}],
+"loop": true,
+"name": &"walk_left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mih4s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cf414")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mqbv5")
+}],
+"loop": true,
+"name": &"walk_right",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8a2f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_om1js")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cacgh")
+}],
+"loop": true,
+"name": &"walk_up",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n8ovw"]
+radius = 22.610838
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8xurw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nwmoi"]
+size = Vector2(167, 19)
+
+[node name="Hub" type="Control" unique_id=607484523]
+layout_mode = 3
+anchors_preset = 0
+offset_top = 2.0
+offset_right = 40.0
+offset_bottom = 42.0
+script = ExtResource("1_6b52r")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=936391863]
+layout_mode = 0
+offset_right = 1022.0
+offset_bottom = 1024.0
+texture = ExtResource("2_7xa0l")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2130781570]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=382972810]
+layout_mode = 2
+
+[node name="player" parent="." unique_id=331193625 groups=["player"] instance=ExtResource("3_7xa0l")]
+position = Vector2(544, 400)
+
+[node name="Sprite2D" parent="player" index="2" unique_id=937605685]
+texture = ExtResource("4_7xa0l")
+
+[node name="AnimatedSprite2D" parent="player" index="3" unique_id=1529002959]
+sprite_frames = SubResource("SpriteFrames_uo5o4")
+animation = &"death"
+
+[node name="RayCast2D" type="RayCast2D" parent="player" unique_id=1727774308]
+target_position = Vector2(0, 20)
+
+[node name="npc" type="StaticBody2D" parent="." unique_id=1742789880 node_paths=PackedStringArray("dialogue_panel", "dialogue_label", "ui_root")]
+texture_filter = 1
+position = Vector2(491, 397)
+script = ExtResource("4_721wg")
+dialogue_panel = NodePath("../CanvasLayer/ui_root/Panel")
+dialogue_label = NodePath("../CanvasLayer/ui_root/Panel/Label")
+ui_root = NodePath("../CanvasLayer/ui_root")
+dialogue_lines = Array[String](["[wave amp=20 freq=2]O, my dear...[/wave] it is changing. The roots are drinking from a ghost's heartbeat.", "Everything is changing... the flowers bloom in the [color=gray]color of a silent goodbye.[/color]", "Can you feel it [shake rate=5 level=10]pulling you north?[/shake] It is a wound that refuses to close."])
+
+[node name="Area2D" type="Area2D" parent="npc" unique_id=1166396842]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/Area2D" unique_id=1274481285]
+position = Vector2(0.5, 1)
+shape = SubResource("CircleShape2D_n8ovw")
+
+[node name="Sprite2D" type="Sprite2D" parent="npc" unique_id=255479471]
+texture = ExtResource("5_w4k11")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc" unique_id=926882105]
+shape = SubResource("CapsuleShape2D_8xurw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1703058870]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=792008419]
+polygon = PackedVector2Array(1020, 2, 736, 3, 595, -4, 595, 149, 597, 390, 1011, 380, 1005, 441, 885, 478, 858, 417, 696, 416, 594, 408, 588, 586, 626, 586, 627, 536, 941, 547, 973, 802, 900, 928, 681, 946, 644, 937, 618, 939, 614, 702, 594, 702, 595, 790, 600, 889, 599, 1019, 462, 1023, 440, 1017, 437, 662, 381, 632, 350, 640, 247, 645, 188, 671, 143, 716, 75, 854, 3, 736, 98, 644, 185, 580, 381, 612, 366, 548, 426, 564, 428, 0, 113, 2, 1, -2, 0, 313, 1, 696, 2, 1025, 446, 1026, 527, 1022, 685, 1021, 979, 1023, 1020, 1020, 1024, 656, 1022, 436, 1019, 250, 1021, 41)
+
+[node name="CanvasLayer" parent="." unique_id=17784025 instance=ExtResource("6_6b52r")]
+
+[node name="NorthGate" type="Area2D" parent="." unique_id=853100352]
+script = ExtResource("7_h5e6w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NorthGate" unique_id=352179966]
+position = Vector2(511.5, 9.5)
+shape = SubResource("RectangleShape2D_nwmoi")
+
+[node name="FadeOverlay" type="ColorRect" parent="." unique_id=678288640]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=8121050]
+color = Color(0.8666667, 1, 1, 1)
+
+[node name="CutsceneSprite" type="Sprite2D" parent="." unique_id=566651433]
+position = Vector2(200, 150)
+texture = ExtResource("12_6b52r")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 640, 480)
+
+[connection signal="body_entered" from="NorthGate" to="NorthGate" method="_on_body_entered"]
+
+[editable path="player"]
+[editable path="CanvasLayer"]

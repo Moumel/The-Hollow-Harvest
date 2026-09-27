@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://ce0fmpjfqocji"]
+
+[ext_resource type="Script" uid="uid://btttl2repj42w" path="res://inspectable_object.gd" id="1_5id2s"]
+
+[node name="InspectableObject" type="Node2D" unique_id=1983917033]
+script = ExtResource("1_5id2s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1342039528]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1335614355]

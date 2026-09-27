@@ -1,0 +1,76 @@
+[gd_scene format=3 uid="uid://c1f6x1t1iwf0v"]
+
+[ext_resource type="Script" uid="uid://cx7e8ue0rvhue" path="res://main_menu.gd" id="1_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://b7xdow8d4eeso" path="res://map_assets/finalbgfr.png" id="2_qoqlk"]
+[ext_resource type="PackedScene" uid="uid://c72aba685givw" path="res://scene/senses_menu.tscn" id="3_iwfq2"]
+[ext_resource type="PackedScene" uid="uid://f417q1yqylj" path="res://scene/music_controller.tscn" id="3_qoqlk"]
+[ext_resource type="Script" uid="uid://bokj1rqmaibwi" path="res://scene/music_controller.gd" id="4_iwfq2"]
+
+[node name="Control" type="Control" unique_id=893981166]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eiy7p")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=469177622]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_qoqlk")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2074888483]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = 19.0
+offset_right = 173.0
+offset_bottom = 124.0
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer" unique_id=536449411]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+text = "REAP"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=143058204]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+text = "Senses"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=1792424735]
+layout_mode = 2
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
+text = "Fade"
+
+[node name="SensesMenu" parent="VBoxContainer" unique_id=1590974944 instance=ExtResource("3_iwfq2")]
+
+[node name="ScreenFade" type="ColorRect" parent="." unique_id=5510317]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
+
+[node name="MusicController" parent="." unique_id=1484005561 instance=ExtResource("3_qoqlk")]
+autoplay = false
+script = ExtResource("4_iwfq2")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_2_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="menu_closed" from="VBoxContainer/SensesMenu" to="." method="_on_senses_menu_menu_closed"]

@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://p3phc8kwg0w4"]
+
+[ext_resource type="Script" uid="uid://ixgs730aspht" path="res://maps/TransitionScene.gd" id="1_stbcj"]
+[ext_resource type="Texture2D" uid="uid://badsxcjcgeiwa" path="res://clussy1.png" id="2_s4s33"]
+[ext_resource type="PackedScene" uid="uid://dt2ue47d6tp6d" path="res://dialogue_ui.tscn" id="3_s4s33"]
+[ext_resource type="Texture2D" uid="uid://p5shc2s0ohw0" path="res://dagger.png" id="5_gjpxi"]
+[ext_resource type="Texture2D" uid="uid://bh4bthocjbp5e" path="res://asesst/mcdemostap1.png" id="5_gq0g6"]
+[ext_resource type="Texture2D" uid="uid://bfrnd42ouhkk8" path="res://asesst/mcdemostap2.png" id="6_746rj"]
+[ext_resource type="Texture2D" uid="uid://6rbew8kjoqc7" path="res://asesst/mcdemostap3.png" id="7_nwjtn"]
+[ext_resource type="Texture2D" uid="uid://dw0pk21tvuvq5" path="res://asesst/mcdemostap4.png" id="8_lbfl3"]
+[ext_resource type="PackedScene" uid="uid://ywfknwoo3r8e" path="res://player.tscn" id="10_746rj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dniuu"]
+size = Vector2(107, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_n5i6u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_gq0g6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_746rj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_nwjtn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_lbfl3")
+}],
+"loop": false,
+"name": &"suicide",
+"speed": 1.0
+}]
+
+[node name="TransitionScene" type="Node2D" unique_id=696310592]
+script = ExtResource("1_stbcj")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=265371001]
+z_index = -1
+custom_minimum_size = Vector2(640, 480)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="clussy" type="Sprite2D" parent="." unique_id=1432232268]
+position = Vector2(317, 260)
+scale = Vector2(0.2736111, 0.2564815)
+texture = ExtResource("2_s4s33")
+
+[node name="CanvasLayer" parent="." unique_id=17784025 instance=ExtResource("3_s4s33")]
+
+[node name="Panel" parent="CanvasLayer/ui_root" parent_id_path=PackedInt32Array(17784025, 327591062) index="0" unique_id=1130622127]
+visible = false
+anchors_preset = 10
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_top = 0.0
+offset_bottom = 118.0
+grow_vertical = 1
+mouse_filter = 2
+
+[node name="Label" parent="CanvasLayer/ui_root/Panel" index="0" unique_id=1099249499]
+visible = false
+anchors_preset = 10
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 0.0
+offset_bottom = 112.0
+grow_vertical = 1
+
+[node name="TextureRect" parent="CanvasLayer/ui_root/Panel" index="1" unique_id=772000057]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ui_root" parent_id_path=PackedInt32Array(17784025, 327591062) index="1" unique_id=1922679411]
+layout_mode = 0
+offset_left = 67.0
+offset_right = 568.0
+offset_bottom = 460.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/ui_root/VBoxContainer" unique_id=1540864506]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/ui_root/VBoxContainer" unique_id=241693475]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="OptionA" type="Button" parent="CanvasLayer/ui_root/VBoxContainer/HBoxContainer" unique_id=1863913402]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="OptionB" type="Button" parent="CanvasLayer/ui_root/VBoxContainer/HBoxContainer" unique_id=503066310]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+
+[node name="ScreenEffectRect" type="ColorRect" parent="CanvasLayer" unique_id=1603839994]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 14.0
+offset_top = 8.0
+offset_right = 14.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VoiceSound" type="AudioStreamPlayer2D" parent="." unique_id=1101703141]
+autoplay = true
+
+[node name="DaggerItem" type="Area2D" parent="." unique_id=1006897793]
+
+[node name="sprite" type="Sprite2D" parent="DaggerItem" unique_id=686739465]
+position = Vector2(318.8125, 131.68752)
+scale = Vector2(0.030113649, 0.025347237)
+texture = ExtResource("5_gjpxi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DaggerItem" unique_id=1286699241]
+position = Vector2(316.5, 133)
+shape = SubResource("RectangleShape2D_dniuu")
+
+[node name="StabAnimatedSprite" type="AnimatedSprite2D" parent="." unique_id=1067525762]
+sprite_frames = SubResource("SpriteFrames_n5i6u")
+animation = &"suicide"
+
+[node name="player" parent="." unique_id=331193625 instance=ExtResource("10_746rj")]
+position = Vector2(317, 245)
+scale = Vector2(1.52, 1.6800025)
+
+[connection signal="pressed" from="CanvasLayer/ui_root/VBoxContainer/HBoxContainer/OptionA" to="." method="_on_option_a_pressed"]
+[connection signal="pressed" from="CanvasLayer/ui_root/VBoxContainer/HBoxContainer/OptionB" to="." method="_on_option_b_pressed"]
+[connection signal="body_entered" from="DaggerItem" to="." method="_on_dagger_item_body_entered"]
+
+[editable path="CanvasLayer"]

@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dt2ue47d6tp6d"]
+
+[ext_resource type="Texture2D" uid="uid://dl7h4j5agnj3s" path="res://npcD.png" id="1_njptv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n8ovw"]
+bg_color = Color(0, 0, 0, 1)
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=17784025]
+layer = 100
+
+[node name="ui_root" type="Control" parent="." unique_id=327591062]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="ui_root" unique_id=1130622127]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -130.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_n8ovw")
+
+[node name="Label" type="RichTextLabel" parent="ui_root/Panel" unique_id=1099249499]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 115.0
+offset_top = 2.0
+offset_right = -3.0
+offset_bottom = -3.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+bbcode_enabled = true
+text = "Sup love one"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="ui_root/Panel" unique_id=772000057]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 17.0
+offset_right = 113.0
+offset_bottom = 114.0
+texture = ExtResource("1_njptv")
+expand_mode = 1
+flip_h = true

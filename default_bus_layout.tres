@@ -1,0 +1,21 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://bdrfv3tj7jjkd"]
+
+[sub_resource type="AudioEffectDistortion" id="AudioEffectDistortion_j3pel"]
+resource_name = "Distortion"
+mode = 2
+drive = 0.73
+
+[sub_resource type="AudioEffectReverb" id="AudioEffectReverb_j3pel"]
+resource_name = "Reverb"
+wet = 0.2
+
+[sub_resource type="AudioEffectLimiter" id="AudioEffectLimiter_j3pel"]
+resource_name = "Limiter"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectDistortion_j3pel")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectReverb_j3pel")
+bus/0/effect/1/enabled = false
+bus/0/effect/2/effect = SubResource("AudioEffectLimiter_j3pel")
+bus/0/effect/2/enabled = false

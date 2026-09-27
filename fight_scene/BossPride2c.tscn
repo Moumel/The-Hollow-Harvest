@@ -1,0 +1,187 @@
+[gd_scene format=3 uid="uid://c4ag8gt7xesuo"]
+
+[ext_resource type="Script" uid="uid://bciidwnpadkk3" path="res://fight_scene/boss_pride_2c.gd" id="1_fylpt"]
+[ext_resource type="Texture2D" uid="uid://d0ya0f3am2lnr" path="res://bosses_assets/Picsart_25-11-30_22-24-49-110.png" id="2_6v21g"]
+[ext_resource type="Texture2D" uid="uid://cu06qsjk4kjtr" path="res://bosses_assets/mc1mainsprite.png" id="3_6v21g"]
+[ext_resource type="Texture2D" uid="uid://cqgmixwiukrl1" path="res://MagicCircleprideexport.png" id="4_s2pi0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahyvu"]
+atlas = ExtResource("4_s2pi0")
+region = Rect2(0, 0, 218, 477)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ryuvs"]
+atlas = ExtResource("4_s2pi0")
+region = Rect2(231, 0, 540, 477)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4qva"]
+atlas = ExtResource("4_s2pi0")
+region = Rect2(770, 0, 539, 477)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ph31k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahyvu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ryuvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g4qva")
+}],
+"loop": true,
+"name": &"block",
+"speed": 10.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ulwv8"]
+font_size = 24
+font_color = Color(0.99607843, 1, 0, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Node2D" type="Node2D" unique_id=10739461]
+script = ExtResource("1_fylpt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=788777443]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 640.0
+offset_bottom = 480.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="pride" type="Sprite2D" parent="." unique_id=659876946]
+position = Vector2(471, 158)
+scale = Vector2(0.08715278, 0.081585445)
+texture = ExtResource("2_6v21g")
+
+[node name="player_fight" type="Sprite2D" parent="." unique_id=112085645]
+position = Vector2(145.30127, 264.9375)
+scale = Vector2(0.1704944, 0.15371443)
+texture = ExtResource("3_6v21g")
+
+[node name="BattleUI" type="CanvasLayer" parent="." unique_id=69900820]
+
+[node name="Panel" type="Panel" parent="BattleUI" unique_id=628576607]
+offset_left = 15.0
+offset_top = 378.0
+offset_right = 630.0
+offset_bottom = 470.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BattleUI" unique_id=1392974651]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -87.0
+offset_top = -97.0
+offset_right = 90.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="AttackButton" type="Button" parent="BattleUI/HBoxContainer" unique_id=1696061309]
+layout_mode = 2
+text = "Attack"
+
+[node name="ItemButton" type="Button" parent="BattleUI/HBoxContainer" unique_id=1081058455]
+layout_mode = 2
+text = "Item"
+
+[node name="ActButton" type="Button" parent="BattleUI/HBoxContainer" unique_id=2028447903]
+layout_mode = 2
+text = "Act"
+
+[node name="SubMenuPanel" type="Panel" parent="BattleUI" unique_id=1651277410]
+offset_left = 256.0
+offset_top = 230.0
+offset_right = 361.0
+offset_bottom = 305.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BattleUI/SubMenuPanel" unique_id=1362233410]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -90.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Head" type="Button" parent="BattleUI/SubMenuPanel/VBoxContainer" unique_id=155364696]
+layout_mode = 2
+text = "Head"
+
+[node name="Body" type="Button" parent="BattleUI/SubMenuPanel/VBoxContainer" unique_id=1361812577]
+layout_mode = 2
+text = "Body"
+
+[node name="Arms" type="Button" parent="BattleUI/SubMenuPanel/VBoxContainer" unique_id=95707183]
+layout_mode = 2
+text = "Arms"
+
+[node name="Legs" type="Button" parent="BattleUI/SubMenuPanel/VBoxContainer" unique_id=694320973]
+layout_mode = 2
+text = "Legs"
+
+[node name="InfoLabel" type="Label" parent="BattleUI" unique_id=568910151]
+offset_right = 639.0
+offset_bottom = 76.0
+
+[node name="ShieldAnim" type="AnimatedSprite2D" parent="." unique_id=676829650]
+position = Vector2(478, 100.99999)
+scale = Vector2(0.44380662, 0.30684388)
+sprite_frames = SubResource("SpriteFrames_ph31k")
+animation = &"block"
+
+[node name="CutsceneLayer" type="CanvasLayer" parent="." unique_id=1568484804]
+
+[node name="Background" type="ColorRect" parent="CutsceneLayer" unique_id=2131364146]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="FrameDisplay" type="TextureRect" parent="CutsceneLayer" unique_id=2008542289]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -5.0
+offset_right = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CutsceneLayer" unique_id=1460774125]
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 8.0
+offset_bottom = 42.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_ulwv8")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=86527797]
+
+[node name="FadeOverlay" type="ColorRect" parent="CanvasLayer" unique_id=558729408]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="BattleUI/HBoxContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="pressed" from="BattleUI/HBoxContainer/ItemButton" to="." method="_on_item_button_pressed"]
+[connection signal="pressed" from="BattleUI/HBoxContainer/ActButton" to="." method="_on_act_button_pressed"]
+[connection signal="pressed" from="BattleUI/SubMenuPanel/VBoxContainer/Head" to="." method="_on_head_pressed"]
+[connection signal="pressed" from="BattleUI/SubMenuPanel/VBoxContainer/Body" to="." method="_on_body_pressed"]
+[connection signal="pressed" from="BattleUI/SubMenuPanel/VBoxContainer/Arms" to="." method="_on_arms_pressed"]
+[connection signal="pressed" from="BattleUI/SubMenuPanel/VBoxContainer/Legs" to="." method="_on_legs_pressed"]
